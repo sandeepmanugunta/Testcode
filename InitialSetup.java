@@ -8,25 +8,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class InitialSetup {
-
-			WebDriver driver;
 						
-			@BeforeMethod
-			public void startBrowser()
-			{
-				System.setProperty("webdriver.gecko.driver","C:\\Users\\smanugunta\\eclipse-workspace\\Project1\\lib\\geckodriver.exe");
-				System.out.println("Browser is opened");	
-			}
-			
 			@Test	
-			public void test1() throws InterruptedException 
+			public static void test1() throws InterruptedException 
 			{
-				
+				WebDriver driver;
 				driver=new FirefoxDriver();
 				driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 				//driver.manage().window().maximize();
@@ -60,12 +49,4 @@ public class InitialSetup {
 			}
 			
 			
-			
-				@AfterMethod
-				public void closeBrowser()
-				{
-					driver.quit();
-					System.out.println("Browser is closed");
-				}
-
 }

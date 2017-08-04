@@ -5,24 +5,16 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 
 public class Dpworldws {
-	WebDriver driver;
 	
-	@BeforeMethod
-	public void startBrowser()
-	{
-		System.setProperty("webdriver.gecko.driver","C:\\Users\\smanugunta\\eclipse-workspace\\Project1\\lib\\geckodriver.exe");
-		System.out.println("Browser is opened");	
-	}
 		
-		@Test (priority=1)
-		public void CBNow() throws InterruptedException
+		@Test
+		public static void CBNow() throws InterruptedException
 		{
+			WebDriver driver;
 			driver=new FirefoxDriver();
 			driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 						 
@@ -52,13 +44,5 @@ public class Dpworldws {
 			driver.findElement(By.xpath(".//*[@id='BookingsSearchP2___LOOKAHEAD']")).click();
 			driver.findElement(By.xpath(".//*[@id='Search']")).click();
 		}	
-		
-		@AfterMethod
-		public void closeBrowser()
-		{
-			driver.quit();
-			System.out.println("Browser is closed");
-		}
-		
 		
 }
